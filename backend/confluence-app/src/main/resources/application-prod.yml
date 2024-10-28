@@ -1,0 +1,5 @@
+# Atlassian Connect
+atlassian:
+  connect:
+    allow-reinstall-missing-host: false
+    debug-all-js: false

@@ -1,0 +1,45 @@
+# Untracked files, see https://git-scm.com/docs/gitignore
+
+# Outputs
+target/
+dist/
+storybook-static/
+
+# Dependencies
+node_modules/
+
+# Tests
+coverage/
+
+# Turbo
+.turbo/
+
+# Logs
+*.log
+
+# Environment files
+*.env
+env.js
+
+# Draw.io
+*.drawio.bkp
+*.drawio.dtmp
+
+# IntelliJ IDEA
+.idea/*
+!.idea/codeStyles
+!.idea/runConfigurations
+*.iws
+*.iml
+*.ipr
+
+# Eclipse
+.settings
+.project
+
+# VS Code
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db

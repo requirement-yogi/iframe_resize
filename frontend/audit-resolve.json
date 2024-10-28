@@ -1,0 +1,10 @@
+{
+  "decisions": {
+    "1097679|@smartbear/fake-ap>axios": {
+      "decision": "ignore",
+      "madeAt": 1723411373413
+    }
+  },
+  "rules": {},
+  "version": 1
+}

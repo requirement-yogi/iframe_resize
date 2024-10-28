@@ -1,0 +1,55 @@
+# Server configuration
+server:
+  forward-headers-strategy: framework
+
+spring:
+  # Spring Data
+  datasource:
+    url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/${DATABASE_NAME:database}
+    username: ${DATABASE_USER:admin}
+    password: ${DATABASE_PASSWORD:password}
+
+  # Spring Data JPA
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+
+  # Flyway
+  flyway:
+    enabled: true
+
+  # Liquibase
+  liquibase:
+    enabled: false
+
+# Spring Actuator
+management:
+  endpoints:
+    enabled-by-default: false
+    web:
+      exposure:
+        include:
+          - health
+          - metrics
+  endpoint:
+    health:
+      enabled: true
+    metrics:
+      enabled: true
+
+# Atlassian Connect
+atlassian:
+  connect:
+    allow-reinstall-missing-host: true
+    debug-all-js: true
+    uri-encoding: none
+    require-auth-exclude-paths:
+      - /v3/api-docs
+      - /v3/api-docs.yaml
+      - /v3/api-docs/swagger-config
+      - /swagger-ui.html
+
+# SpringDoc OpenAPI
+springdoc:
+  packages-to-scan: com.requirementyogi.cloud

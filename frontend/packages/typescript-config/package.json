@@ -1,0 +1,9 @@
+{
+  "name": "@requirementyogi/typescript-config",
+  "version": "1.0.0",
+  "description": "Requirement Yogi - TypeScript configuration",
+  "private": true,
+  "main": "tsconfig.json",
+  "author": "Requirement Yogi (https://www.requirementyogi.com)",
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,1 @@
+window.AP.theming.initializeTheming();

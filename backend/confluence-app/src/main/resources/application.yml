@@ -1,0 +1,17 @@
+# Import the common configuration
+spring.config.import: application-common.yml
+
+# Server configuration
+server:
+  port: 8080
+
+spring:
+  # Developer tools
+  devtools:
+    livereload:
+      port: 35729
+
+# Addon configuration
+addon:
+  key: ${CONFLUENCE_APP_ADDON_KEY:ry-cloud}
+  base-url: ${CONFLUENCE_APP_BASE_URL:http://localhost:8080}

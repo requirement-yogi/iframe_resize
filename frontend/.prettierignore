@@ -1,0 +1,18 @@
+# Files ignored by Prettier, see https://prettier.io/docs/en/ignore.html
+
+# Outputs
+dist/
+
+# Dependencies
+node_modules/
+
+# Tests
+coverage/
+
+# Turbo
+.turbo/
+
+# Generated files
+**/src/generated/
+openapi.json
+audit-resolve.json

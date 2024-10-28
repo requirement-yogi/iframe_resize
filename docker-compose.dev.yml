@@ -1,0 +1,30 @@
+services:
+  database:
+    image: postgres:16.4-alpine
+    environment:
+      POSTGRES_DB: database
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d database"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - database-volume:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  reverse-proxy:
+    image: nginx:1.26.2-alpine
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    volumes:
+      - ./docker/nginx/snippets/proxy-headers.conf:/etc/nginx/snippets/proxy-headers.conf
+      - ./docker/nginx/confluence-app.conf:/etc/nginx/conf.d/confluence-app.conf
+    ports:
+      - "4000:4000"
+      - "4001:4001"
+
+volumes:
+  database-volume:

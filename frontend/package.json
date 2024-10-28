@@ -1,0 +1,42 @@
+{
+  "name": "requirementyogi",
+  "version": "1.0.0",
+  "description": "Requirement Yogi",
+  "private": true,
+  "author": "Requirement Yogi (https://www.requirementyogi.com)",
+  "license": "UNLICENSED",
+  "scripts": {
+    "clean": "turbo run clean",
+    "generate": "turbo run generate",
+    "start": "turbo run start",
+    "start:confluence-app": "turbo run start --filter=@requirementyogi/confluence-app...",
+    "audit": "check-audit",
+    "audit:fix": "resolve-audit",
+    "check-updates": "ncu --workspaces --root",
+    "update": "ncu --workspaces --root --interactive",
+    "sync": "syncpack list-mismatches",
+    "sync:fix": "syncpack fix-mismatches",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "test": "turbo run test",
+    "test:coverage": "turbo run test:coverage",
+    "build": "turbo run build"
+  },
+  "packageManager": "npm@10.8.3",
+  "engines": {
+    "node": ">=20.0.0 <21.0.0"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "devDependencies": {
+    "npm-audit-resolver": "^3.0.0-RC.0",
+    "npm-check-updates": "^17.1.3",
+    "prettier": "^3.3.3",
+    "syncpack": "^13.0.0",
+    "turbo": "^2.1.2"
+  }
+}

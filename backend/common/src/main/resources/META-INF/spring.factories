@@ -1,0 +1,1 @@
+org.springframework.boot.env.EnvironmentPostProcessor=com.requirementyogi.cloud.common.config.EnvironmentConfiguration

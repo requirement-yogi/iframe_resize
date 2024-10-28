@@ -1,0 +1,12 @@
+{
+  "extends": "@requirementyogi/typescript-config",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "dist",
+    "paths": {
+      "@common/*": ["../common/src/*"],
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*"]
+}

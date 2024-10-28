@@ -1,0 +1,140 @@
+{
+  "key": "${addon.key}",
+  "baseUrl": "${addon.base-url}",
+  "name": "Requirement Yogi for Confluence",
+  "description": "Requirement management for Confluence.",
+  "vendor": {
+    "name": "Requirement Yogi",
+    "url": "https://www.requirementyogi.com"
+  },
+  "links": {
+    "documentation": "https://docs.requirementyogi.com/cloud/",
+    "support": "https://requirementyogi.atlassian.net/servicedesk"
+  },
+  "enableLicensing": true,
+  "authentication": {
+    "type": "jwt"
+  },
+  "lifecycle": {
+    "installed": "/installed",
+    "uninstalled": "/uninstalled"
+  },
+  "scopes": [
+    "READ",
+    "ACT_AS_USER"
+  ],
+  "modules": {
+    "webSections": [
+      {
+        "key": "requirement-yogi-admin-section",
+        "location": "system.admin",
+        "name": {
+          "value": "Requirement Yogi"
+        },
+        "weight": 1000
+      }
+    ],
+    "adminPages": [
+      {
+        "key": "settings-page",
+        "location": "system.admin/requirement-yogi-admin-section",
+        "name": {
+          "value": "Settings"
+        },
+        "url": "/web/settings",
+        "weight": 100,
+        "fullPage": true
+      }
+    ],
+    "configurePage": {
+      "key": "configuration-page",
+      "name": {
+        "value": "Settings"
+      },
+      "url": "/web/settings",
+      "fullPage": true
+    },
+    "generalPages": [
+      {
+        "key": "requirements-page",
+        "location": "none",
+        "name": {
+          "value": "Requirements"
+        },
+        "url": "/web/requirements?key={ac.key}",
+        "conditions": [
+          {
+            "condition": "user_is_logged_in"
+          }
+        ]
+      }
+    ],
+    "customContent": [
+      {
+        "key": "requirements",
+        "name": {
+          "value": "Requirements"
+        },
+        "apiSupport": {
+          "supportedContainerTypes": ["space"]
+        },
+        "uiSupport": {
+          "listViewComponent": {
+            "moduleKey": "requirements-page"
+          },
+          "contentViewComponent": {
+            "moduleKey": "requirements-page"
+          },
+          "icons": {
+            "item": {
+              "width": 16,
+              "height": 16,
+              "url": "/web/static/media/logo.svg"
+            }
+          }
+        }
+      }
+    ],
+    "staticContentMacros": [
+      {
+        "key": "requirement-macro",
+        "name": {
+          "value": "Requirement Yogi"
+        },
+        "description": {
+          "value": "Define a requirement"
+        },
+        "url": "/macros/requirement?spaceKey={space.key}&key={key}",
+        "outputType": "inline",
+        "categories": ["external-content"],
+        "icon": {
+          "width": 16,
+          "height": 16,
+          "url": "/web/static/media/logo.svg"
+        },
+        "parameters": [
+          {
+            "identifier": "key",
+            "name": {
+              "value": "Key"
+            },
+            "type": "string",
+            "required": true,
+            "multiple": false
+          }
+        ],
+        "editor": {
+          "url": "/web/macros/requirement-editor",
+          "editTitle": {
+            "value": "Edit the requirement macro"
+          },
+          "insertTitle": {
+            "value": "Insert a requirement macro"
+          },
+          "width": "500px",
+          "height": "300px"
+        }
+      }
+    ]
+  }
+}
